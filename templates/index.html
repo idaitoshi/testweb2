@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>情報まとめサイト</title>
+</head>
+<body>
+    <h1>今日の情報まとめ</h1>
+    <ul>
+        {% for item in data %}
+            <li>
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.body }}</p>
+                <a href="{{ item.url }}">元の記事</a>
+            </li>
+        {% endfor %}
+    </ul>
