@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+#from datetime import datetime
 import json
 
 # スクレイピング対象のURL
@@ -16,8 +16,8 @@ def scrape_data():
         if response.status_code == 200:
             soup = BeautifulSoup(response.content, "html.parser")
             # 例: タイトルと本文を抽出
-            title = soup.find("h1").get_text()
-            body = soup.find("div", class_="content").get_text()
+            title = soup.find("title").get_text()
+            body = soup.find("div", class_="participation_list").get_text()
             data.append({"url": url, "title": title, "body": body})
     return data
 
